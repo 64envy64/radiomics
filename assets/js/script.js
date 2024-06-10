@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
 /**
  * add event on element
  */
