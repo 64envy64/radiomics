@@ -1,45 +1,32 @@
 'use strict';
-
 document.addEventListener('DOMContentLoaded', () => {
   const containers = document.querySelectorAll('.has-scrollbar');
   const bannerContainer = document.getElementById('banner-scrollbar');
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
   containers.forEach(container => {
     let isDown = false;
     let startX;
     let scrollLeft;
 
-    const endDragging = () => {
-      isDown = false;
-      container.classList.remove('active');
-      if (isMobile) {
-        snapToClosest();
-      }
-    };
-
-    const snapToClosest = () => {
-      const scrollItems = Array.from(container.children);
-      const scrollPositions = scrollItems.map(item => item.offsetLeft);
-      const closest = scrollPositions.reduce((prev, curr) =>
-        Math.abs(curr - container.scrollLeft) < Math.abs(prev - container.scrollLeft) ? curr : prev
-      );
-      container.scrollTo({ left: closest, behavior: 'smooth' });
-    };
-
     container.addEventListener('mousedown', (e) => {
-      if (isMobile) return;
       isDown = true;
       container.classList.add('active');
       startX = e.pageX - container.offsetLeft;
       scrollLeft = container.scrollLeft;
     });
 
-    container.addEventListener('mouseleave', endDragging);
-    container.addEventListener('mouseup', endDragging);
+    container.addEventListener('mouseleave', () => {
+      isDown = false;
+      container.classList.remove('active');
+    });
+
+    container.addEventListener('mouseup', () => {
+      isDown = false;
+      container.classList.remove('active');
+    });
 
     container.addEventListener('mousemove', (e) => {
-      if (!isDown || isMobile) return;
+      if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - container.offsetLeft;
       const walk = (x - startX) * 2; // Scroll speed
@@ -60,8 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
       container.scrollLeft = scrollLeft - walk;
     });
 
-    container.addEventListener('touchend', endDragging);
-    container.addEventListener('touchcancel', endDragging);
+    container.addEventListener('touchend', () => {
+      isDown = false;
+    });
+
+    container.addEventListener('touchcancel', () => {
+      isDown = false;
+    });
   });
 
   // Automatic scrolling for banner-scrollbar only
@@ -79,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 6000);
   }
 });
+
+
 
 
 /**
