@@ -7,7 +7,7 @@
   --spanish-gray: hsl(0, 0%, 61%);
   --light-gray: hsl(0, 0%, 80%);
   --cultured-1: hsl(0, 0%, 97%);
-  --cultured-2: hsl(60, 6%, 93%);
+  --cultured-2: hsla(60, 6%, 93%, 0.457);
   --gray-web: hsl(0, 0%, 49%);
   --white_30: hsl(0, 0%, 100%, 0.3);
   --black_70: hsla(0, 0%, 0%, 0.7);
@@ -1009,37 +1009,91 @@ margin: 0 auto;
 .banner-card {
   min-height: 420px;
   padding: 30px;
-}
-#programms {
-  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .banner-card .card-subtitle {
-  color: var(--black);
+  color: var(--gray-web);
   font-size: var(--fs-6);
   font-weight: var(--fw-600);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.banner-card :is(.card-subtitle, .card-title) { text-shadow: 0 0 2px var(--cultured-2); }
+.banner-card :is(.card-subtitle, .card-title) {
+  text-shadow: 0 0 2px var(--cultured-2);
+}
 
-.banner-card-1 .card-title { margin-block: 10px 30px; }
-.banner-card-2 .card-title { margin-block: 10px 30px; }
+.banner-card .card-title {
+  margin-block: 10px 30px;
+  font-size: var(--fs-4);
+  font-weight: var(--fw-700);
+}
 
 .banner-card .card-text {
   color: var(--black);
   font-size: var(--fs-7);
   margin-block: 10px 25px;
 }
+
+.banner-card .has-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+#programms {
+  min-height: 300px;
+}
+
 #teleradiowrap {
   margin-block-end: 0px;
 }
+
 @media (min-width: 992px) {
   #teleradio {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .banner-card {
+    padding: 20px;
+    min-height: 250px;
+  }
+
+  .banner-card .card-title {
+    font-size: var(--fs-5);
+    margin-block: 10px 20px;
+  }
+
+  .banner-card .card-subtitle {
+    font-size: var(--fs-7);
+  }
+
+  .banner-card .btn {
+    font-size: var(--fs-6);
+  }
+
+  .banner-card .has-bg-image {
+    opacity: 0.3; /* Ensure text is more readable */
+  }
+}
+
 
 
 
@@ -1278,7 +1332,22 @@ margin: 0 auto;
 
 
 
-
+@media (max-width: 574px) {
+.hero-card {
+    padding-inline: 20px;
+    background-position: 0%;
+    padding: 50px 15px;
+}
+.h1 {
+  font-size: var(--fs-3);
+}
+.hero-text {
+  font-size: var(--fs-8);
+}
+.header {
+  padding-block-end: 10px ;
+}
+}
 
 /**
  * responsive for larger than 768px screen
