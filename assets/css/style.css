@@ -208,6 +208,12 @@ body {
 
 .h2 { font-size: var(--fs-3); }
 
+@media (max-width: 350px) {
+  .h2 {
+    font-size: var(--fs-4);
+  }
+}
+
 .h2-large { font-size: var(--fs-2); }
 
 .h3 { font-size: var(--fs-4); }
