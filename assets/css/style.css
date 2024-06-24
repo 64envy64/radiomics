@@ -2,8 +2,9 @@
 :root {
 
   --hoockers-green_20: hsl(148, 20%, 38%, 0.2);
-  --main2-color: #DEE9FF;
-  --main2-btn: #4f73b6;
+  --main2-color: #0e2544;
+  --main2-btn: #0e2544;
+  --stars: #feca90;
   --spanish-gray: hsl(0, 0%, 61%);
   --light-gray: hsl(0, 0%, 80%);
   --cultured-1: hsl(0, 0%, 97%);
@@ -405,7 +406,7 @@ body {
 
 .alert {
   background-color: var(--main2-color);
-  color: var(--black);
+  color: var(--white);
   font-size: var(--fs-7);
   text-transform: uppercase;
   font-weight: var(--fw-700);
@@ -710,7 +711,7 @@ margin: 0 auto;
 
 .shop-card .rating-wrapper {
   gap: 2px;
-  color: var(--main2-btn);
+  color: var(--stars);
   font-size: 15px;
 }
 
@@ -1070,7 +1071,7 @@ margin: 0 auto;
 }
 
 .banner-card .card-subtitle {
-  color: var(--gray-web);
+  color: #494949;
   font-size: var(--fs-6);
   font-weight: var(--fw-600);
   text-transform: uppercase;
@@ -1105,8 +1106,16 @@ margin: 0 auto;
   opacity: 0.8;
 }
 
-#programms {
+#programms, #cifrovie {
   min-height: 300px;
+}
+#cifrovie .has-bg-image {
+  opacity: 0.7;
+}
+@media (max-width: 1199px) {
+  #cifrovie {
+    height: 300px;
+  }
 }
 
 #teleradiowrap {
@@ -1634,7 +1643,7 @@ margin: 0 auto;
    * HERO
    */
 
-  .hero-card { padding: 120px 100px; }
+  .hero-card { padding: 120px 100px;}
 
   .hero-text { max-width: 40ch; }
 
