@@ -405,8 +405,8 @@ body {
 }
 
 .alert {
-  background-color: var(--main2-color);
-  color: var(--white);
+  background-color: #C3C4C6;
+  color: var(--black);
   font-size: var(--fs-7);
   text-transform: uppercase;
   font-weight: var(--fw-700);
@@ -429,6 +429,28 @@ body {
 .header .logo {
   margin-inline: auto;
 }
+.header-top .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.header .new-logo {
+  position: absolute;
+  left: 22%; 
+}
+@media (max-width: 1200px) {
+  .header-top .new-logo {
+    display: none;
+  }
+}
+
+.header .logo {
+  margin-inline: auto;
+}
+
+
 
 .header-top.active {
   position: fixed;
@@ -573,11 +595,26 @@ margin: 0 auto;
   background-color: var(--light-gray);
   padding: 100px 15px;
   background-position: 40%;
+  height: 550px;
 }
 
 .hero-text {
   font-size: var(--fs-6);
   margin-block: 16px 30px;
+}
+
+@media (max-width: 900px) {
+  .h1 {
+    font-size: var(--fs-2);
+  }
+  .hero-card {
+    padding: 50px 0px;
+  }
+}
+@media (max-width: 574px) {
+  .hero-card {
+    height: 500px;
+  }
 }
 
 .hero .price {
