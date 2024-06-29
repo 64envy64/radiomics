@@ -438,7 +438,7 @@ body {
 
 .header .new-logo {
   position: absolute;
-  left: 22%; 
+  left: 30%; 
 }
 @media (max-width: 1200px) {
   .header-top .new-logo {
@@ -539,6 +539,9 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-block-end: 55px;
+}
+.mobile-navbar .wrapper .logo-mobile {
+  padding-right: 15px;
 }
 
 .nav-close-btn {
@@ -1584,6 +1587,7 @@ margin: 0 auto;
 
   .header .logo { margin-inline-end: 60px;
   margin: 0 auto; }
+  
   .logo .logo-text {
     color: #000;
     font-weight: 600;
